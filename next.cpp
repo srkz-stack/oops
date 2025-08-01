@@ -1,32 +1,34 @@
 #include<iostream>
-
-class Entity{
-public:
-  std::string GetName(){return "Entity";}
-};
-
-class Player: public Entity{
+class Rectangle{
 private:
-  std::string m_Name;
+  int Width;
+  int Height;
 public:
-  Player(const std::string& name)
-  : m_Name(name) {}
-  std::string GetName() {return m_Name;}
+  void setWidth(int w);
+  void setHeight(int h);
+  double getArea() const;
+  double getPerimeter() const;
 };
-
+void Rectangle::setWidth(int w){
+  Width = w;
+}
+void Rectangle::setHeight(int h){
+  Height = h;
+}
+double Rectangle::getArea() const{
+  return (Width*Height);
+}
+double Rectangle::getPerimeter() const{
+  return (2*(Height+Width));
+}
 int main(){
-  Entity* e = new Entity();
-  std::cout << e->GetName() << std::endl;
+  int width = 10;
+  int height = 20;
+  Rectangle* r = new Rectangle();
+  r->setWidth(width);
+  r->setHeight(height);
+  std::cout << r->getPerimeter() << '\n';
+  std::cout << r->getArea() << '\n';
+  delete r;
 
-  Player* p = new Player("srk");
-  std::cout << p->GetName() << std::endl;
-
-  Entity* entity = p;
-  std::cout << entity->GetName() << std::endl;
-
-
-
-
-  delete e;
-  delete p;
 }
