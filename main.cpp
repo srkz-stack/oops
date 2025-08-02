@@ -1,11 +1,11 @@
 #include<iostream>
-#include<bits/stdc++.h>
+#include "rectangle.h"
 
 int main(){
-  int number = -120;
-  int a = abs(number);
-  std::cout << a << '\n';
+  rectangle r;
+  r.setWidth(10.0);
+  r.setHeight(20.0);
+  std::cout << r.getArea() << '\n';
+  std::cout << r.getPerimeter() << '\n';
   return 0;
-
-  
 }
